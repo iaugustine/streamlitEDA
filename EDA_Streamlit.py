@@ -42,7 +42,7 @@ def main():
     if st.checkbox('Check datatypes'):
         st.write(data.dtypes)
         
-    if st.checkbox('Explore all data \t \t  (Click to expand)\n'):
+    if st.checkbox('Explore all data \t \t  (Click arrow on top right corner to expand)\n'):
         st.write(data)
         
     # if st.checkbox('Check dataset dimension'):
@@ -89,7 +89,7 @@ def main():
     if st.checkbox('Examine numerical data statistics'):
         st.write(data.describe())
         
-    if st.checkbox('Examine non-numerical data statistics'): #need to handle when no non numeric data exists
+    if st.checkbox('Examine non-numerical data statistics(Only applicable if dataset has non-integer data'): #need to handle when no non numeric data exists
         val = data.describe(include=['object', 'bool'])
         if val is not None:
             st.write(data.describe(include=['object', 'bool']))
