@@ -10,7 +10,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import io
-#import seaborn as sns
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -31,11 +31,7 @@ def main():
     columns = data.columns.to_list()
     
     
-    # if st.checkbox('Check Info'):
-    #     buf = io.StringIO()
-    #     data.info(verbose = True,buf=buf)
-    #     s = buf.getvalue()
-    #     st.write(s)
+    
         
     if st.checkbox('Check NULL values count'):
         st.write(data.isnull().sum())
@@ -52,7 +48,7 @@ def main():
     # if st.checkbox('Check dataset dimension'):
     #     st.write(data.shape)
  
-    if st.checkbox("Show Selected Columns"):
+    if st.checkbox("Explore Selected Column Data"):
         selected_columns = st.multiselect("Select Columns",columns)
         new_df = data[selected_columns]
         st.dataframe(new_df)
@@ -60,7 +56,7 @@ def main():
         st.write(data.corr())
         ax = sns.heatmap(data.corr(),annot=True)
         st.pyplot()
-
+    # Graphical analysis out of scope for current deployment. WIll attempt later
     # if st.checkbox('Graphs'):
     #     gtype = st.selectbox('Select option', ['No Selection','bar', 'line', 'histogram'],index = 0)
     #     if gtype == 'bar':
@@ -99,7 +95,14 @@ def main():
             st.write(data.describe(include=['object', 'bool']))
         else:
             st.write('No non-numerical data in the dataset')
+            
+    if st.checkbox('Check Other Information'):
+        buf = io.StringIO()
+        data.info(verbose = True,buf=buf)
+        s = buf.getvalue()
+        st.write(s)
     
+  st.write('\n\nPersonal project created by Immanuel Ryan Augustine. Connect with me on Linked in: https://www.linkedin.com/in/immanuelryan/')
     
 if __name__ == '__main__':
 	main()
