@@ -1,5 +1,5 @@
 # Streamlit Exploratory Data Analysis Tool (Web Application)
-![Python 3.7](https://img.shields.io/badge/Python-3.6-brightgreen.svg)
+![Python 3.7](https://upload.wikimedia.org/wikipedia/commons/f/fc/Blue_Python_3.7_Shield_Badge.svg)
 <br>
 
 This repository conatins files required to deploy a Exploratory Data Analysis Tool created with Streamlit on Heroku PaaS platform.
